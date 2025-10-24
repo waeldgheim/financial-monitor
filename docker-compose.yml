@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "8001:8000"
+  ingestion-service:
+    build: ./services/ingestion-service
+    ports:
+      - "8002:8000"
+  alerting-service:
+    build: ./services/alerting-service
+    ports:
+      - "8003:8000"
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "8004:8000"
+  ml-service:
+    build: ./services/ml-prediction-service
+    ports:
+      - "8005:8000"
