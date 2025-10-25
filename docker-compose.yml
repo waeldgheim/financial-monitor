@@ -21,7 +21,7 @@ services:
     ports:
       - "8004:8000"
   ml-service:
-    build: ./services/ml-prediction_service
+    build: ./services/ml_prediction_service
     ports:
       - "8005:8000"
   postgres:
