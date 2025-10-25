@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from routes.user_routes import router as user_router
 from models import Base
-from db import engine
+from shared_lib.db import engine
 
 app = FastAPI(title="User Service")
 
