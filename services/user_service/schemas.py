@@ -20,11 +20,9 @@ class UserCreate(BaseModel):
             )
         return v
 
-class UserResponse(BaseModel):
-    id: int
+class LoginRequest(BaseModel):
     email: EmailStr
-    username: str
-    created_at: datetime
+    password: str
 
-    class Config:
-        orm_mode = True
+class TokenResponse(BaseModel):
+    access_token: str
