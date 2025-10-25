@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   user-service:
-    build: ./services/user-service
+    build: 
+      context: .
+      dockerfile: ./services/user-service/Dockerfile
     env_file:
       - ./.env 
     ports:
