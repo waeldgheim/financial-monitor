@@ -26,3 +26,11 @@ class LoginRequest(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
+
+class UserProfile(BaseModel):
+    username: str
+    email: str
+    created_at: datetime
+
+    class Config:
+        orm_mode = True
