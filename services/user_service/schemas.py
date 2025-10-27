@@ -1,4 +1,3 @@
-# user-service/models.py
 from pydantic import BaseModel, EmailStr, validator
 from fastapi import HTTPException, status
 import re
@@ -24,8 +23,13 @@ class LoginRequest(BaseModel):
     email: EmailStr
     password: str
 
+class RefreshRequest(BaseModel):
+    refresh_token: str
+
 class TokenResponse(BaseModel):
     access_token: str
+    token_type: str = "bearer"
+    refresh_token: str | None = None
 
 class UserProfile(BaseModel):
     username: str
