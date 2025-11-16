@@ -9,9 +9,15 @@ services:
     ports:
       - "8001:8000"
   ingestion-service:
-    build: ./services/ingestion_service
+    build: 
+      context: .
+      dockerfile: ./services/ingestion_service/Dockerfile
+    env_file:
+      - ./.env 
     ports:
       - "8002:8000"
+    depends_on:
+      - redis
   alerting-service:
     build: ./services/alerting_service
     ports:
@@ -34,6 +40,10 @@ services:
       - "${POSTGRES_PORT}:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
   
 volumes:
   pg_data:
